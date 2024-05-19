@@ -16,3 +16,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Docs: https://hexdocs.pm/phoenix
   * Forum: https://elixirforum.com/c/phoenix-forum
   * Source: https://github.com/phoenixframework/phoenix
+
+## What the Japanese Dictionaries hold
+  - JMdict_e.gz - the JMdict file with only English glosses;
+  - JMdict_e_examp.gz - the above JMdict file with example sentence pairs from the Tanaka_Corpus;
