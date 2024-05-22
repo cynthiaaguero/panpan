@@ -1,6 +1,6 @@
 defmodule Panpan.WordFetcher do
   @jmpdict_path "panpan/japanese_dictionaries/JMdict_e"
-  def fetch_from_JMdict() do
+  def fetch_from_JMdict(word) do
     """
     - Input: a word to search for
     - Output: the relevant entry / an error message
@@ -13,7 +13,9 @@ defmodule Panpan.WordFetcher do
 
     case File.read(@jmpdict_path) do
       {:ok, xml_content} ->
-        parse_xml(xml_content)
+        parsed_data = parse_xml(xml_content)
+        result = search_word(parsed_data, word)
+        format_result(result)
 
       {:error, reason} ->
         {:error, "Failed to read JMdict XML file: #{reason}"}
@@ -40,7 +42,7 @@ defmodule Panpan.WordFetcher do
     """
   end
 
-  defp format_result() do
+  defp format_result(result) do
     """
     - Input: The search result
     - Output: A formatted result or an error message
